@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BTC/USD Live – Mini Exchange</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="title">
+      <h1>BTC/USD Live</h1>
+      <div class="subtle">Data: Binance (BTCUSDT)</div>
+    </div>
+    <div class="price-container">
+      <div id="price">Loading...</div>
+      <div id="change">0%</div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="left">
+      <div id="chart"></div>
+    </section>
+
+    <aside class="right">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Order Book</h2>
+          <div class="subtle">Top 10 Bids / Asks</div>
+        </div>
+        <div class="orderbook">
+          <div class="ob-col">
+            <div class="ob-head">Bids</div>
+            <div id="bids" class="ob-list"></div>
+          </div>
+          <div class="ob-col">
+            <div class="ob-head">Asks</div>
+            <div id="asks" class="ob-list"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Trade History</h2>
+          <div class="subtle">30 transaksi terakhir</div>
+        </div>
+        <div id="trades" class="trades"></div>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="footer">
+    <span>Made with Lightweight Charts • Auto-refresh</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
