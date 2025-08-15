@@ -1,0 +1,166 @@
+:root{
+  --bg:#0f1115;
+  --bg2:#151822;
+  --panel:#171a24;
+  --text:#e6e8ef;
+  --muted:#8a90a2;
+  --grid:#262b3a;
+  --green:#4bffb5;
+  --red:#ff4976;
+  --yellow:#ffc857;
+}
+
+*{ box-sizing:border-box }
+
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
+  background:var(--bg);
+  color:var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+.header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 16px;
+  background:var(--bg2);
+  border-bottom:1px solid #1d2233;
+}
+
+.title h1{
+  font-size:18px;
+  margin:0 0 4px 0;
+}
+.subtle{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.price-container{
+  text-align:right;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+#price{
+  font-size:22px;
+  font-weight:700;
+}
+#change{
+  font-size:14px;
+}
+
+.layout{
+  display:grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap:14px;
+  padding:14px;
+}
+@media (max-width: 980px){
+  .layout{
+    grid-template-columns: 1fr;
+  }
+}
+
+.left{
+  background:var(--panel);
+  border:1px solid #1d2233;
+  border-radius:14px;
+  padding:8px;
+  min-height:520px;
+}
+
+#chart{
+  width:100%;
+  height:520px;
+}
+
+.right{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.panel{
+  background:var(--panel);
+  border:1px solid #1d2233;
+  border-radius:14px;
+  overflow:hidden;
+}
+
+.panel-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:10px 12px;
+  border-bottom:1px solid #1d2233;
+}
+.panel-header h2{
+  margin:0;
+  font-size:16px;
+}
+
+.orderbook{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:0;
+}
+.ob-col{
+  padding:8px 10px;
+}
+.ob-head{
+  font-size:12px;
+  color:var(--muted);
+  margin-bottom:6px;
+  border-bottom:1px dashed #222638;
+  padding-bottom:6px;
+}
+
+.ob-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size:13px;
+  padding:4px 0;
+}
+.ob-row .price{ justify-self:start }
+.ob-row .qty{ justify-self:end; color:var(--muted) }
+
+.ob-row.green .price{ color:var(--green) }
+.ob-row.red .price{ color:var(--red) }
+
+.trades{
+  max-height:300px;
+  overflow:auto;
+  padding:8px 10px;
+}
+.trade-row{
+  display:grid;
+  grid-template-columns: 90px 1fr 1fr;
+  gap:8px;
+  font-size:13px;
+  padding:6px 0;
+  border-bottom:1px dotted #21263a;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+.trade-row:last-child{ border-bottom:none }
+.trade-row .time{ color:var(--muted) }
+.trade-row .price.green{ color:var(--green) }
+.trade-row .price.red{ color:var(--red) }
+.trade-row .qty{ text-align:right; color:var(--muted) }
+
+.footer{
+  padding:10px 16px;
+  color:var(--muted);
+  font-size:12px;
+  border-top:1px solid #1d2233;
+  background:var(--bg2);
+}
+
+/* Scrollbar halus */
+.trades::-webkit-scrollbar{ width:10px }
+.trades::-webkit-scrollbar-thumb{ background:#2a3045; border-radius:6px }
+.trades::-webkit-scrollbar-track{ background:#121420 }
